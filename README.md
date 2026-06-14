@@ -24,25 +24,29 @@ Built for the **HealthLynked / Kaggle** provider directory update challenge.
 
 ---
 
-## Quick start
+## Architecture
 
-```bash
-git clone <your-repo-url>
-cd Provider-Intelligence-Pipeline
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+Offline-first pipeline with a deterministic decision core. LLM assists ambiguous cases but never overrides thresholds.
 
-make demo    # data → pipeline → evaluate → cost
-make app     # http://localhost:8501
-make test    # offline-safe pytest
-```
+![Provider Intelligence Pipeline architecture](docs/screenshots/architecture.png)
 
-With API credentials (optional, local `.env` only):
+> **Deterministic core decides · LLM enriches only**
 
-```bash
-cp .env.example .env
-LLM_MODE=auto make demo
-```
+---
+
+## Dashboard
+
+Operational Streamlit UI for reviewers — overview metrics, conflict triage, auto-update audit, cost model, and full event log.
+
+### Overview
+
+![Dashboard overview — KPIs, decision distribution, confidence histogram](docs/screenshots/dashboard-overview.png)
+
+### Review Queue (HL_002 — conflict routing)
+
+Human review when external sources disagree. LLM enrichment is visible but does not change the final action.
+
+![Review queue — HL_002 human review with conflict score and source evidence](docs/screenshots/dashboard-review-queue.png)
 
 ---
 
@@ -61,18 +65,41 @@ Showcase: **HL_001** safe auto-update · **HL_002** conflict → human review.
 
 ---
 
+## Quick start
+
+```bash
+git clone https://github.com/delliriumL/Provider-Intelligence-Pipeline.git
+cd Provider-Intelligence-Pipeline
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+
+make demo    # data → pipeline → evaluate → cost
+make app     # http://localhost:8501
+make test    # offline-safe pytest
+```
+
+With API credentials (optional, local `.env` only):
+
+```bash
+cp .env.example .env
+LLM_MODE=auto make demo
+```
+
+---
+
 ## Repository layout
 
 ```
-config/              thresholds, weights, LLM policy (YAML)
-data/sample/         demo CSV inputs
-data/raw/            practice website HTML snapshots
-docs/PROJECT.md      complete project documentation
-docs/sample_outputs/ dashboard fallback samples
-src/                 pipeline package
-app/                 Streamlit dashboard
-tests/               pytest suite
-outputs/             runtime artifacts (gitignored)
+config/               thresholds, weights, LLM policy (YAML)
+data/sample/          demo CSV inputs
+data/raw/             practice website HTML snapshots
+docs/PROJECT.md       complete project documentation
+docs/screenshots/     README visuals (architecture + dashboard)
+docs/sample_outputs/  dashboard fallback samples
+src/                  pipeline package
+app/                  Streamlit dashboard
+tests/                pytest suite
+outputs/              runtime artifacts (gitignored)
 ```
 
 ---
@@ -81,7 +108,7 @@ outputs/             runtime artifacts (gitignored)
 
 **Everything in one place:** [docs/PROJECT.md](docs/PROJECT.md)
 
-Architecture · scoring · LLM policy · cost model · data sources · dashboard guide · demo script · CLI · roadmap.
+Scoring · LLM policy · cost model · data sources · demo walkthrough · CLI · roadmap.
 
 ---
 
