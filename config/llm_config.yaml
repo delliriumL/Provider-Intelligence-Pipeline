@@ -1,0 +1,23 @@
+mode: auto
+
+api:
+  base_url: ""
+  api_key: ""
+  model: ""
+
+gating:
+  max_record_share: 0.08
+  min_risk_for_call: 0.70
+  min_conflict_for_call: 0.35
+  min_parser_confidence: 0.60
+  min_specialty_confidence: 0.70
+
+costs:
+  estimated_cost_per_call_usd: 0.002
+
+use_cases:
+  website_extraction: true
+  conflict_explanation: true
+  specialty_fallback: true
+  reviewer_summary: true
+  source_evidence_summary: true

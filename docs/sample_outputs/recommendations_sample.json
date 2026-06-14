@@ -1,0 +1,185 @@
+[
+  {
+    "provider_id": "HL_001",
+    "npi": "1234567893",
+    "change_detected": true,
+    "changes": [
+      {
+        "field": "address",
+        "old_value": "100 Main St, Naples, FL 34102",
+        "new_value": "250 Health Park Dr, Fort Myers, FL 33908",
+        "confidence_score": 0.9325,
+        "supporting_sources": [
+          "NPI Registry",
+          "CMS Doctors & Clinicians"
+        ],
+        "normalized_old_value": "100 main st",
+        "normalized_new_value": "250 health park dr"
+      },
+      {
+        "field": "phone",
+        "old_value": "239-555-1234",
+        "new_value": "239-555-9000",
+        "confidence_score": 0.9175,
+        "supporting_sources": [
+          "NPI Registry",
+          "CMS Doctors & Clinicians"
+        ],
+        "normalized_old_value": "+12395551234",
+        "normalized_new_value": "+12395559000"
+      }
+    ],
+    "overall_confidence": 0.925,
+    "recommended_action": "auto_update",
+    "reason": "Update confirmed by CMS Doctors & Clinicians, NPPES with exact NPI match and no material source conflict.",
+    "audit_id": "AUD_63A4F165192C",
+    "risk_score": 0.39,
+    "conflict_score": 0.0
+  },
+  {
+    "provider_id": "HL_002",
+    "npi": "2234567891",
+    "change_detected": true,
+    "changes": [
+      {
+        "field": "address",
+        "old_value": "410 Palm Ave",
+        "new_value": "250 Health Park Dr",
+        "confidence_score": 0.7658,
+        "supporting_sources": [
+          "NPI Registry"
+        ],
+        "normalized_old_value": "410 palm ave",
+        "normalized_new_value": "250 health park dr"
+      }
+    ],
+    "overall_confidence": 0.7658,
+    "recommended_action": "human_review",
+    "reason": "External sources disagree on material fields; conflict exceeds safe auto-update threshold.",
+    "audit_id": "AUD_66BCB9AD3ED7",
+    "risk_score": 0.34,
+    "conflict_score": 0.35
+  },
+  {
+    "provider_id": "HL_003",
+    "npi": "1000000038",
+    "change_detected": true,
+    "changes": [
+      {
+        "field": "practice_name",
+        "old_value": "Metro Family Clinic PLLC",
+        "new_value": "Metro Family Clinic",
+        "confidence_score": 0.9325,
+        "supporting_sources": [
+          "NPI Registry",
+          "CMS Doctors & Clinicians"
+        ],
+        "normalized_old_value": "metro family clinic pllc",
+        "normalized_new_value": "metro family clinic"
+      }
+    ],
+    "overall_confidence": 0.9325,
+    "recommended_action": "human_review",
+    "reason": "Changes include practice_name; only address and phone may auto-update.",
+    "audit_id": "AUD_BFE94F238EF3",
+    "risk_score": 0.205,
+    "conflict_score": 0.0
+  },
+  {
+    "provider_id": "HL_004",
+    "npi": "1000000046",
+    "change_detected": true,
+    "changes": [
+      {
+        "field": "active_status",
+        "old_value": "active",
+        "new_value": "deactivated",
+        "confidence_score": 0.755,
+        "supporting_sources": [
+          "NPI Registry"
+        ],
+        "normalized_old_value": "active",
+        "normalized_new_value": "deactivated"
+      }
+    ],
+    "overall_confidence": 0.755,
+    "recommended_action": "human_review",
+    "reason": "Changes include active_status; only address and phone may auto-update.",
+    "audit_id": "AUD_74648BA69157",
+    "risk_score": 0.445,
+    "conflict_score": 0.5
+  },
+  {
+    "provider_id": "HL_005",
+    "npi": "1000000053",
+    "change_detected": true,
+    "changes": [
+      {
+        "field": "address",
+        "old_value": "754 Transfer Blvd",
+        "new_value": "9170 Maple Dr",
+        "confidence_score": 0.9325,
+        "supporting_sources": [
+          "NPI Registry",
+          "CMS Doctors & Clinicians"
+        ],
+        "normalized_old_value": "754 transfer blvd",
+        "normalized_new_value": "9170 maple dr"
+      },
+      {
+        "field": "practice_name",
+        "old_value": "New Group Medical Associates",
+        "new_value": "Metro Family Clinic",
+        "confidence_score": 0.9325,
+        "supporting_sources": [
+          "NPI Registry",
+          "CMS Doctors & Clinicians"
+        ],
+        "normalized_old_value": "new group medical associates",
+        "normalized_new_value": "metro family clinic"
+      }
+    ],
+    "overall_confidence": 0.9325,
+    "recommended_action": "human_review",
+    "reason": "Changes include practice_name; only address and phone may auto-update.",
+    "audit_id": "AUD_B0E098DDABF5",
+    "risk_score": 0.045,
+    "conflict_score": 0.0
+  },
+  {
+    "provider_id": "HL_006_DUP",
+    "npi": "1000000061",
+    "change_detected": false,
+    "changes": [],
+    "overall_confidence": 1.0,
+    "recommended_action": "no_change",
+    "reason": "Directory fields materially match external sources after normalization.",
+    "audit_id": "AUD_9684424A7E84",
+    "risk_score": 0.045,
+    "conflict_score": 0.0
+  },
+  {
+    "provider_id": "HL_007",
+    "npi": "1234567890",
+    "change_detected": false,
+    "changes": [],
+    "overall_confidence": 1.0,
+    "recommended_action": "do_not_update",
+    "reason": "Invalid NPI with no reliable identity match.",
+    "audit_id": "AUD_4513ADD236D8",
+    "risk_score": 0.32,
+    "conflict_score": 0.0
+  },
+  {
+    "provider_id": "HL_008",
+    "npi": "1000000087",
+    "change_detected": false,
+    "changes": [],
+    "overall_confidence": 1.0,
+    "recommended_action": "no_change",
+    "reason": "Directory fields materially match external sources after normalization.",
+    "audit_id": "AUD_0A786D70942A",
+    "risk_score": 0.205,
+    "conflict_score": 0.0
+  }
+]

@@ -1,0 +1,24 @@
+paths:
+  data_dir: data
+  sample_dir: data/sample
+  raw_dir: data/raw
+  processed_dir: data/processed
+  reference_dir: data/reference
+  outputs_dir: outputs
+
+demo:
+  record_count: 60
+  seed: 42
+  sample_files:
+    current_directory: current_directory.csv
+    external_nppes: external_nppes_snapshot.csv
+    external_cms: external_cms_clinicians.csv
+
+matching:
+  name_similarity_threshold: 85
+  address_similarity_threshold: 80
+  duplicate_risk_threshold: 0.70
+  fuzzy_identity_threshold: 75
+
+pipeline:
+  default_mode: demo

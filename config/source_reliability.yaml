@@ -1,0 +1,36 @@
+sources:
+  nppes_bulk:
+    identity: 0.95
+    address: 0.80
+    phone: 0.80
+    specialty: 0.85
+    status: 0.95
+    notes: "Official NPPES data. Strong for identity/status, not absolute proof of credentialing."
+  nppes_deactivation:
+    identity: 0.95
+    address: 0.10
+    phone: 0.10
+    specialty: 0.10
+    status: 0.99
+    notes: "Strong source for deactivation signal."
+  cms_doctors_clinicians:
+    identity: 0.85
+    address: 0.85
+    phone: 0.60
+    specialty: 0.75
+    status: 0.70
+    notes: "Useful for clinician/group/address relationship."
+  practice_website:
+    identity: 0.70
+    address: 0.85
+    phone: 0.85
+    specialty: 0.70
+    status: 0.65
+    notes: "Often current for public contact info, but website parsing may be noisy."
+  state_medical_board:
+    identity: 0.85
+    address: 0.50
+    phone: 0.40
+    specialty: 0.70
+    status: 0.90
+    notes: "Useful for license/status, less reliable for practice phone/address."

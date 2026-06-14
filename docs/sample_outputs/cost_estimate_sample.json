@@ -1,0 +1,68 @@
+{
+  "record_count": 60,
+  "manual_review_baseline_per_1000": 500.0,
+  "estimated_savings_per_1000": 288.76,
+  "assumptions": {
+    "human_review_cost_per_record": 0.5,
+    "wrong_auto_update_cost": 10.0,
+    "missed_update_cost": 3.0,
+    "llm_cost_per_call": 0.002,
+    "llm_max_record_share": 0.08,
+    "action_distribution": {
+      "auto_update": 0.05,
+      "human_review": 0.25,
+      "no_change": 0.65,
+      "do_not_update": 0.05
+    }
+  },
+  "by_mode": {
+    "off": {
+      "mode": "off",
+      "record_count": 60,
+      "estimated_llm_calls": 0.0,
+      "cost_breakdown_usd": {
+        "human_review": 7.5,
+        "llm_assistance": 0.0,
+        "wrong_auto_update_risk": 0.6,
+        "missed_update_risk": 4.5,
+        "compute_overhead": 0.06
+      },
+      "total_estimated_cost_usd": 12.66,
+      "cost_per_1000_records_usd": 211.0
+    },
+    "auto": {
+      "mode": "auto",
+      "record_count": 60,
+      "estimated_llm_calls": 7.2,
+      "cost_breakdown_usd": {
+        "human_review": 7.5,
+        "llm_assistance": 0.01,
+        "wrong_auto_update_risk": 0.6,
+        "missed_update_risk": 4.5,
+        "compute_overhead": 0.06
+      },
+      "total_estimated_cost_usd": 12.67,
+      "cost_per_1000_records_usd": 211.24
+    },
+    "force": {
+      "mode": "force",
+      "record_count": 60,
+      "estimated_llm_calls": 14.4,
+      "cost_breakdown_usd": {
+        "human_review": 7.5,
+        "llm_assistance": 0.03,
+        "wrong_auto_update_risk": 0.6,
+        "missed_update_risk": 4.5,
+        "compute_overhead": 0.06
+      },
+      "total_estimated_cost_usd": 12.69,
+      "cost_per_1000_records_usd": 211.48
+    }
+  },
+  "comparison": {
+    "auto_vs_off_delta_usd": 0.01,
+    "force_vs_auto_delta_usd": 0.02,
+    "recommended_mode": "auto",
+    "notes": "LLM_MODE=auto adds bounded LLM cost while preserving deterministic decisions. LLM_MODE=force is for experimentation only."
+  }
+}

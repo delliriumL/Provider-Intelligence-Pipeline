@@ -1,0 +1,23 @@
+risk_weights:
+  verification_age_risk: 0.25
+  npi_status_risk: 0.20
+  contact_quality_risk: 0.20
+  address_quality_risk: 0.15
+  duplicate_risk: 0.10
+  source_disagreement_risk: 0.10
+
+confidence_weights:
+  source_reliability: 0.30
+  exact_identifier_match: 0.25
+  cross_source_agreement: 0.20
+  field_similarity: 0.15
+  recency_score: 0.10
+
+field_criticality:
+  npi: 1.00
+  active_status: 0.95
+  address: 0.90
+  phone: 0.85
+  practice_name: 0.75
+  specialty: 0.70
+  website: 0.50

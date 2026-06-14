@@ -1,0 +1,492 @@
+/* Provider Intelligence — operational risk dashboard */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap");
+
+:root {
+    --primary: #2563EB;
+    --primary-light: #3B82F6;
+    --accent: #14B8A6;
+    --accent-light: #2DD4BF;
+    --navy: #0F172A;
+    --navy-muted: #1E293B;
+    --background: #F7FAFC;
+    --surface: #FFFFFF;
+    --border: #E2E8F0;
+    --text: #0F172A;
+    --text-muted: #64748B;
+    --success: #059669;
+    --warning: #D97706;
+    --danger: #DC2626;
+    --info: #0284C7;
+}
+
+.stApp {
+    background-color: var(--background);
+    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+}
+
+.block-container {
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+    max-width: 1400px;
+}
+
+/* Page header */
+.page-header {
+    text-align: center;
+    padding: 1.25rem 1rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.page-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.35rem 0;
+    letter-spacing: -0.02em;
+}
+
+.page-header p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.45;
+}
+
+/* Demo banner */
+.demo-banner {
+    background: linear-gradient(90deg, #FEF3C7 0%, #FFFBEB 100%);
+    border: 1px solid #FCD34D;
+    border-left: 4px solid var(--warning);
+    border-radius: 10px;
+    padding: 0.85rem 1.1rem;
+    margin-bottom: 1.25rem;
+    color: #92400E;
+    font-size: 0.9rem;
+}
+
+.demo-banner code {
+    background: rgba(0, 0, 0, 0.06);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+/* Metric cards */
+.metric-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    height: 100%;
+}
+
+.metric-card:hover {
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+    border-color: #BFDBFE;
+}
+
+.metric-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+}
+
+.metric-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.1;
+}
+
+.metric-delta {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    font-weight: 500;
+}
+
+.metric-delta.positive { color: var(--success); }
+.metric-delta.negative { color: var(--danger); }
+.metric-delta.neutral { color: var(--text-muted); }
+
+.metric-card.compact {
+    padding: 0.75rem 0.85rem;
+}
+
+.metric-card.compact .metric-value {
+    font-size: 1.35rem;
+}
+
+.metric-card.compact .metric-label {
+    font-size: 0.72rem;
+    line-height: 1.25;
+}
+
+.metric-card.compact .metric-delta {
+    font-size: 0.72rem;
+}
+
+.metric-card.compact.uniform {
+    min-height: 6.25rem;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.metric-card.compact.uniform .metric-label {
+    min-height: 2.5em;
+    line-height: 1.25;
+}
+
+.metric-card.compact.uniform .metric-value {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.metric-card.compact.uniform .metric-delta {
+    min-height: 1.15rem;
+    margin-top: auto;
+    padding-top: 0.25rem;
+}
+
+.metric-card.compact.uniform .metric-delta-empty {
+    visibility: hidden;
+}
+
+/* Equal-height columns in run summary rows */
+div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="column"] {
+    align-self: stretch;
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="column"] > div {
+    height: 100%;
+}
+
+.summary-panel-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0.25rem 0 0.5rem 0;
+}
+
+.audit-detail-card {
+    margin-top: 0.75rem;
+}
+
+.audit-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.75rem 1rem;
+    margin-top: 0.5rem;
+}
+
+.audit-detail-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+}
+
+.audit-detail-value {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--navy);
+    word-break: break-word;
+}
+
+.audit-detail-body {
+    margin-top: 0.35rem;
+    padding: 0.85rem 1rem;
+    background: #F8FAFC;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #334155;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Section panels */
+.panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.15rem 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.panel-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.85rem 0;
+    padding-bottom: 0.55rem;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+}
+
+/* Field comparison */
+.field-comparison {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.65rem;
+}
+
+.field-comparison-header {
+    background: var(--navy);
+    color: #FFFFFF;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.field-confidence {
+    background: rgba(20, 184, 166, 0.25);
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+}
+
+.field-comparison-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.field-side {
+    padding: 0.7rem 0.85rem;
+    font-size: 0.88rem;
+}
+
+.field-side.current {
+    background: #F8FAFC;
+    border-right: 1px solid var(--border);
+}
+
+.field-side.proposed {
+    background: #EFF6FF;
+}
+
+.field-side-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.field-value {
+    color: var(--text);
+    word-break: break-word;
+}
+
+.field-normalized {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+    font-style: italic;
+}
+
+.field-changed {
+    border-left: 3px solid var(--primary);
+}
+
+/* Score breakdown */
+.score-bar-row {
+    margin-bottom: 0.65rem;
+}
+
+.score-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    margin-bottom: 0.2rem;
+    color: var(--text);
+}
+
+.score-bar-track {
+    background: #E2E8F0;
+    border-radius: 6px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.score-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.4s ease;
+}
+
+.score-bar-fill.risk { background: linear-gradient(90deg, #F59E0B, #DC2626); }
+.score-bar-fill.confidence { background: linear-gradient(90deg, var(--accent), var(--primary)); }
+.score-bar-fill.conflict { background: linear-gradient(90deg, #A78BFA, #7C3AED); }
+
+/* Source evidence */
+.source-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 0.9rem;
+    margin-bottom: 0.55rem;
+    background: #FAFBFC;
+}
+
+.source-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.35rem;
+}
+
+.source-name {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--navy);
+}
+
+.source-weight {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.15rem 0.45rem;
+    border-radius: 999px;
+    background: #DBEAFE;
+    color: var(--primary);
+}
+
+.source-detail {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Audit trail */
+.audit-event {
+    border-left: 3px solid var(--primary);
+    padding: 0.55rem 0 0.55rem 0.85rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #F8FAFC 0%, transparent 100%);
+    border-radius: 0 8px 8px 0;
+}
+
+.audit-event-time {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.audit-event-type {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.audit-event-detail {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+}
+
+/* Decision badges */
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.badge-auto_update { background: #D1FAE5; color: #065F46; }
+.badge-human_review { background: #FEF3C7; color: #92400E; }
+.badge-do_not_update { background: #FEE2E2; color: #991B1B; }
+.badge-no_change { background: #E0E7FF; color: #3730A3; }
+
+/* Reviewer actions */
+.action-success {
+    background: #ECFDF5;
+    border: 1px solid #6EE7B7;
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    color: #065F46;
+    font-size: 0.88rem;
+}
+
+/* Tabs */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 0.35rem;
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 0.35rem;
+    border: 1px solid var(--border);
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: 8px;
+    padding: 0.55rem 1rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.stTabs [aria-selected="true"] {
+    background: var(--primary) !important;
+    color: #FFFFFF !important;
+}
+
+/* Streamlit overrides */
+div[data-testid="stMetric"] {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+div[data-testid="stMetric"] label {
+    color: var(--text-muted) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.04em;
+}
+
+div[data-testid="stMetric"] [data-testid="stMetricValue"] {
+    color: var(--navy) !important;
+    font-weight: 700 !important;
+}
+
+.stButton > button[kind="primary"] {
+    background: var(--primary);
+    border: none;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.stButton > button[kind="secondary"] {
+    border-color: var(--border);
+    color: var(--navy);
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+hr {
+    border-color: var(--border);
+    margin: 1rem 0;
+}

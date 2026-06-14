@@ -1,0 +1,235 @@
+[
+  {
+    "provider_id": "HL_001",
+    "npi": "1234567893",
+    "change_detected": true,
+    "changes": [
+      {
+        "field": "address",
+        "old_value": "100 Main St",
+        "new_value": "250 Health Park Dr",
+        "normalized_old_value": "100 main st",
+        "normalized_new_value": "250 health park dr",
+        "similarity": 0.31666666666666665,
+        "confidence_score": 0.9325,
+        "supporting_sources": [
+          "NPPES",
+          "CMS Doctors & Clinicians"
+        ],
+        "conflict_detected": true,
+        "reason": "address differs between directory and external sources"
+      },
+      {
+        "field": "phone",
+        "old_value": "+12395551234",
+        "new_value": "+12395559000",
+        "normalized_old_value": "+12395551234",
+        "normalized_new_value": "+12395559000",
+        "similarity": 0.0,
+        "confidence_score": 0.9175,
+        "supporting_sources": [
+          "NPPES",
+          "CMS Doctors & Clinicians"
+        ],
+        "conflict_detected": true,
+        "reason": "phone differs between directory and external sources"
+      }
+    ],
+    "risk_score": 0.39,
+    "overall_confidence": 0.925,
+    "conflict_score": 0.0,
+    "recommended_action": "auto_update",
+    "reason": "Update confirmed by CMS Doctors & Clinicians, NPPES with exact NPI match and no material source conflict.",
+    "supporting_sources": [
+      "CMS Doctors & Clinicians",
+      "NPPES"
+    ],
+    "audit_id": "AUD_63A4F165192C"
+  },
+  {
+    "provider_id": "HL_002",
+    "npi": "2234567891",
+    "change_detected": true,
+    "changes": [
+      {
+        "field": "address",
+        "old_value": "410 Palm Ave",
+        "new_value": "250 Health Park Dr",
+        "normalized_old_value": "410 palm ave",
+        "normalized_new_value": "250 health park dr",
+        "similarity": 0.37222222222222223,
+        "confidence_score": 0.7658,
+        "supporting_sources": [
+          "NPPES"
+        ],
+        "conflict_detected": true,
+        "reason": "address differs between directory and external sources"
+      }
+    ],
+    "risk_score": 0.34,
+    "overall_confidence": 0.7658,
+    "conflict_score": 0.35,
+    "recommended_action": "human_review",
+    "reason": "External sources disagree on material fields; conflict exceeds safe auto-update threshold.",
+    "supporting_sources": [
+      "CMS Doctors & Clinicians",
+      "NPPES"
+    ],
+    "audit_id": "AUD_66BCB9AD3ED7"
+  },
+  {
+    "provider_id": "HL_003",
+    "npi": "1000000038",
+    "change_detected": true,
+    "changes": [
+      {
+        "field": "practice_name",
+        "old_value": "Metro Family Clinic PLLC",
+        "new_value": "Metro Family Clinic",
+        "normalized_old_value": "metro family clinic pllc",
+        "normalized_new_value": "metro family clinic",
+        "similarity": 0.5,
+        "confidence_score": 0.9325,
+        "supporting_sources": [
+          "NPPES",
+          "CMS Doctors & Clinicians"
+        ],
+        "conflict_detected": true,
+        "reason": "practice_name differs between directory and external sources"
+      }
+    ],
+    "risk_score": 0.205,
+    "overall_confidence": 0.9325,
+    "conflict_score": 0.0,
+    "recommended_action": "human_review",
+    "reason": "Changes include practice_name; only address and phone may auto-update.",
+    "supporting_sources": [
+      "CMS Doctors & Clinicians",
+      "NPPES"
+    ],
+    "audit_id": "AUD_BFE94F238EF3"
+  },
+  {
+    "provider_id": "HL_004",
+    "npi": "1000000046",
+    "change_detected": true,
+    "changes": [
+      {
+        "field": "active_status",
+        "old_value": "active",
+        "new_value": "deactivated",
+        "normalized_old_value": "active",
+        "normalized_new_value": "deactivated",
+        "similarity": 0.0,
+        "confidence_score": 0.755,
+        "supporting_sources": [
+          "NPPES"
+        ],
+        "conflict_detected": true,
+        "reason": "active_status differs between directory and external sources"
+      }
+    ],
+    "risk_score": 0.445,
+    "overall_confidence": 0.755,
+    "conflict_score": 0.5,
+    "recommended_action": "human_review",
+    "reason": "Changes include active_status; only address and phone may auto-update.",
+    "supporting_sources": [
+      "CMS Doctors & Clinicians",
+      "NPPES"
+    ],
+    "audit_id": "AUD_74648BA69157"
+  },
+  {
+    "provider_id": "HL_005",
+    "npi": "1000000053",
+    "change_detected": true,
+    "changes": [
+      {
+        "field": "address",
+        "old_value": "754 Transfer Blvd",
+        "new_value": "9170 Maple Dr",
+        "normalized_old_value": "754 transfer blvd",
+        "normalized_new_value": "9170 maple dr",
+        "similarity": 0.6578947368421053,
+        "confidence_score": 0.9325,
+        "supporting_sources": [
+          "NPPES",
+          "CMS Doctors & Clinicians"
+        ],
+        "conflict_detected": true,
+        "reason": "address differs between directory and external sources"
+      },
+      {
+        "field": "practice_name",
+        "old_value": "New Group Medical Associates",
+        "new_value": "Metro Family Clinic",
+        "normalized_old_value": "new group medical associates",
+        "normalized_new_value": "metro family clinic",
+        "similarity": 0.5,
+        "confidence_score": 0.9325,
+        "supporting_sources": [
+          "NPPES",
+          "CMS Doctors & Clinicians"
+        ],
+        "conflict_detected": true,
+        "reason": "practice_name differs between directory and external sources"
+      }
+    ],
+    "risk_score": 0.045,
+    "overall_confidence": 0.9325,
+    "conflict_score": 0.0,
+    "recommended_action": "human_review",
+    "reason": "Changes include practice_name; only address and phone may auto-update.",
+    "supporting_sources": [
+      "CMS Doctors & Clinicians",
+      "NPPES"
+    ],
+    "audit_id": "AUD_B0E098DDABF5"
+  },
+  {
+    "provider_id": "HL_006_DUP",
+    "npi": "1000000061",
+    "change_detected": false,
+    "changes": [],
+    "risk_score": 0.045,
+    "overall_confidence": 1.0,
+    "conflict_score": 0.0,
+    "recommended_action": "no_change",
+    "reason": "Directory fields materially match external sources after normalization.",
+    "supporting_sources": [
+      "CMS Doctors & Clinicians",
+      "NPPES"
+    ],
+    "audit_id": "AUD_9684424A7E84"
+  },
+  {
+    "provider_id": "HL_007",
+    "npi": "1234567890",
+    "change_detected": false,
+    "changes": [],
+    "risk_score": 0.32,
+    "overall_confidence": 1.0,
+    "conflict_score": 0.0,
+    "recommended_action": "do_not_update",
+    "reason": "Invalid NPI with no reliable identity match.",
+    "supporting_sources": [],
+    "audit_id": "AUD_4513ADD236D8"
+  },
+  {
+    "provider_id": "HL_008",
+    "npi": "1000000087",
+    "change_detected": false,
+    "changes": [],
+    "risk_score": 0.205,
+    "overall_confidence": 1.0,
+    "conflict_score": 0.0,
+    "recommended_action": "no_change",
+    "reason": "Directory fields materially match external sources after normalization.",
+    "supporting_sources": [
+      "CMS Doctors & Clinicians",
+      "NPPES"
+    ],
+    "audit_id": "AUD_0A786D70942A"
+  }
+]

@@ -1,0 +1,23 @@
+services:
+  pipeline:
+    build: .
+    environment:
+      LLM_MODE: ${LLM_MODE:-auto}
+      LLM_API_BASE: ${LLM_API_BASE:-}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-}
+    volumes:
+      - ./outputs:/app/outputs
+      - ./data:/app/data
+    command: ["python", "-m", "provider_intelligence.cli", "run-all"]
+
+  app:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      LLM_MODE: off
+    volumes:
+      - ./outputs:/app/outputs
+      - ./data:/app/data
+    command: ["streamlit", "run", "app/streamlit_app.py", "--server.address", "0.0.0.0"]

@@ -1,0 +1,17 @@
+risk:
+  high_risk_threshold: 0.70
+  medium_risk_threshold: 0.45
+
+confidence:
+  auto_update_threshold: 0.88
+  no_change_threshold: 0.80
+  human_review_min_threshold: 0.55
+
+conflict:
+  max_conflict_for_auto_update: 0.15
+  high_conflict_threshold: 0.35
+
+llm:
+  min_risk_for_llm: 0.70
+  min_conflict_for_llm: 0.35
+  max_llm_record_share: 0.08
